@@ -1,48 +1,53 @@
 #Contents
 1. WHAT IS TRACE?<br/>
 	- 1.1 FUNCTIONALITIES OF TRACE<br/>
-2. TRACE API REFERENCE<br/>
-	- 2.1. STEPS FOR SIGNUP<br/>
-	- 2.2. USER AUTHENTICATION API<br/>
-	- 2.3. TRANSFER RECORDS<br/>
-	- 2.4. TRANSFER FISHCOIN<br/>
-	- 2.5. SETTINGS<br/>
-		- A. PROFILE INFORMATION<br/>
-		- B. TRANSACTION LOG<br/>
-			- I. DEBIT TRANSACTION LOGS OF USER<br/>
-			- II. CREDIT TRANSACTION LOGS OF USER<br/>
-		- C. INVITES MANAGEMENT<br/>
-			- I. SEND AN INVITE<br/>
-			- II. ACCEPT AN INVITE<br/>
-			- III. REJECT AN INVITE<br/>
-			- IV. FETCH SENT INVITES<br/>
-			- V. RECEIVED INVITES<br/>
-	- 2.6 FIND YOUR TRANSACTIONS ON TEST NET<br/>
-  3. Product developed using Trace protocol<br/>
+	- 1.2 TRACE API REFERENCE<br/>
+		- 1.2.1. STEPS FOR SIGNUP<br/>
+		- 1.2.2. USER AUTHENTICATION API<br/>
+		- 1.2.3. TRANSFER RECORDS<br/>
+	- 1.3. TRANSFER VOUCHER TOKEN<br/>	
+	- 1.4 FIND YOUR TRANSACTIONS ON TEST NET<br/>
+2. PRODUCT DEVELOPED USING TRACE PROTOCOL - "mFish"
+ 	- 2.1 mFish REFERENCE
+ 		- 2.1.1 USER AUTHENTICATION API<br/>
+ 		- 2.1.2 TRANSFER RECORDS<br/>
+ 		- 2.1.3 Settings
+	- A. PROFILE INFORMATION<br/>
+	- B. TRANSACTION LOG<br/>
+		- I. DEBIT TRANSACTION LOGS OF USER<br/>
+		- II. CREDIT TRANSACTION LOGS OF USER<br/>
+	- C. INVITES MANAGEMENT<br/>
+		- I. SEND AN INVITE<br/>
+		- II. ACCEPT AN INVITE<br/>
+		- III. REJECT AN INVITE<br/>
+		- IV. FETCH SENT INVITES<br/>
+		- V. RECEIVED INVITES<br/>
+	
+
 
 **1.	What is TRACE?**<br/>
-It is an application programming interface, enablesto open up applications’ data and functionality to external third-party developers and business partners. TRACE allows services and products to communicate with each other and leverage each other’s data and functionality through a documented interface. Developers don't need to know how an TRACE API is implemented; they can simply use the TRACE APIinterface to communicate with other products and services. 
+It is an application programming interface, enables to open up applications’ data and functionality to external third-party developers and business partners. Trace allows services and products to communicate with each other and leverage each other’s data and functionality through a documented interface. Developers don't need to know how a Trace API is implemented; they can simply use the Trace API interface to communicate with other products and services.
 
 - **1.1	Functionalities of TRACE**<br/>
-	There are three user roles involved in TRACE system namely Grower, Consumer, Trader. Users will be able to avail the features of application by signing into it. For registering new user, along with user details, industry role is a mandatory field. After successful sign up, transfer records are made visible to user as per industry role. All the registration and login details are stored on Firebase database.
+	There are three user roles involved in TRACE system namely Grower, Consumer and Trader. Users will be able to avail the features of application by signing into it. For registering new user, along with user details, industry role is a mandatory field. After successful sign up, transfer records are made visible to user as per industry role. All the registration and login details are stored on Firebase database.  
 
   <p align="center">
   <img src="../Trace.png" width="350" title="hover text">
   </p>
 
-	User roles like grower and consumer can add new transfer record while trader can add linked records. Grower/Consumer will have to enter the product information along with their own profile information which was auto populated. In product information, unit id, harvest date, location, species and quantities are captured. To send this product, receiver's mobile number is required. The receiver will be able to check his newly received data with provision of accepting and rejecting the product. 
-	If user rejects any product then all details of such product get erased from the system. For accepted product, certain number of tokens gets transferred to sender's account and the details are then written on public blockchain Stellar with the help of smart contract. All the transactional records are maintained on blockchain. 
-	To utilize the received tokens, another functionality called recharge utility is provided. Because of this function farmers, Trader and consumers are able to use those received utility tokens for various recharge services like mobile, TV, broadband, electricity and many more utility bill payments. 
+	User roles like Grower and Consumer can add new transfer record while trader can add linked records. Consumer/Grower will have to enter the product information along with their own profile information which was auto populated. In product information, unit id, harvest date, location, species and quantities are captured. To send this product, receiver's mobile number is required. The receiver will be able to check his newly received data with provision of accepting and rejecting the product.  
+If user rejects any product then all details of such product get erased from the system. For accepted product, certain number of tokens gets transferred to sender's account and the details are then written on public blockchain Stellar with the help of smart contract. All the transactional records are maintained on blockchain.  
+To utilize the received tokens, another functionality called recharge utility is provided. Because of this function Grower, Consumer and Trader are able to use those received utility tokens for various recharge services like mobile, TV, broadband, electricity and many more utility bill payments.   
  
-**2. TRACE API reference**<br/>
+ **1.2 TRACE API reference**<br/>
 Welcome to the TRACE API reference.
 This API serves as the primary gateway to facilitate digital values transfer through TRACE.
 Links to access<br/>
 	-[TRACE Website](http://52.163.83.160:7771)<br/>
 	-[TRACE Firebase Swagger](http://52.163.83.160:7772/API-docs)<br/>
 	-[TRACE Blockchain Swagger](http://52.163.83.160:7773/API-docs/#/)<br/>
-
-- **2.1	Steps for Signup**<br/>
+	
+- **1.2.1 Steps for Signup**<br/>
 1. Signup by [clicking here](http://52.163.83.160:7771)
 2. User has to Sign up from portal using valid email address and select anyone of the three roles. (Grower, Consumer, Trader).
   <p align="center">
@@ -58,7 +63,8 @@ Links to access<br/>
   <img src="../signin.png" width="700" height="400" title="hover text">
   </p>
 
-- **2.2	User Authentication API**<br/>
+
+- **1.2.2	User Authentication API**<br/>
 Once the initial signup and verification process is done, you can use this API to fetch the user details. UserID is the value that will be used to uniquely identify the user and also will be required as a base for all the user related operations. 
 
 API: UserAuthentication<br/>
@@ -75,7 +81,7 @@ Sample Request Body:{
   "password": "Abc@123"
 }
 
-- **2.3. Transfer Records**<br/>
+- **1.2.3 Transfer Records**<br/>
 There are multiple API’s that can be consumed for fetching details of records, below is the list provided with it’s use, API end points and parameters.
 	- **1. Fetching sent records**<br/>
 This API will fetch all the records that are sent by user to fisher, farmer, trader along with status of records.<br/>
@@ -103,27 +109,183 @@ Sample Request Body: {
   "userId": "52QqKTpme1VAMZgsqSycLMhuTpd"
 }
 
-- **3.Fetching country list.**<br/>
+- **3 Fetching country list.**<br/>
 Used to fetch all the countries with country code.<br/>
 Endpoint:cmxAPI/firebase/getCountryList<br/>
 Method:GET<br/>
 
-- **4.Get Major Fishing Area.**<br/>
+
+**1.3 Transfer Voucher Tokens**<br/>
+- **a. Get Wallet balance**<br/>
+To fetch Stellar wallet balance<br/>
+API: /AccountDetails<br/>
+Request Body:<br/>
+
+	Parameter | Data type | Required/Default
+	--------- | --------- | --------
+	accountId | String | Yes
+
+Sample Request Body: {
+  "accountId":"GDC33CQDL7U3YI4MI2MFLRM7JP62TXDKBIWI4UXH2H27BOCAMJZSZZN3" 
+}
+
+- **b. Transfer Voucher Tokens**<br/>
+This API is used to transfer Voucher token assets from one account to another<br/>
+API: /transferVoucherTokenAssets<br/>
+Request Body:<br/>
+
+	Parameter | Data type | Required/Default
+	--------- | --------- | --------
+	srcAcct | String | Yes
+	srcSeed | String | Yes
+	srcUserID | String | Yes
+	destAcct | String | Yes
+	destSeed | String | Yes
+	destUserID | String | Yes
+	Amount | float | Yes
+	
+Sample Request Body:
+{
+  "srcAcct":"GATSU64WOJDOGUMLKZP5FUJL32QM6WX5PLH4YRKK3ROWMCFPZ7RCKPI2",
+  "srcSeed":"U2FsdGVkX1+8FNQyvOaMCZvl2R1raM6/SHLfTiUvwWeiOsV7NqRe8i3C6Joei1DTrK7DcbALVjk3d90FT+YMwUYFp2bEmyrC9Gf7SAmOxXM=",
+  "srcUserID":"Vkb6O6ZfLyQS1cLRbcnXJc4QnMp1",
+  "destAcct":"GAVAUZFXKZMZMXS3CTZF34AX4IHQMEYJK55CNJ4M75MV25LDTADXJUJQ",
+  "destSeed":"U2FsdGVkX1+nBSNFrJPVu17q7IlIVcR4ub7wNr7q7BXfnsAUSlY27EiW3rqGpIeiiyDOdbBzmfZsHWsughR/CxlvurGPWGS7YwduuiK9keM=",
+  "destUserID": "52QqKTpme1VAMZgsqSycLMhuTpd2",
+  "amount": 0.1
+}
+
+
+**c.Write Data on Blockchain**<br/>
+This API is used to write IPFS hash on the stellar blockchain, it returns the Stellar Transaction Hash
+
+This API is used to transfer Voucher token assets to merchant and developer account from user account. For the feature developed by the developer, the developer would be getting a 50% cut of merchant fees. The developer can get the details required for the fee transfer through the account details API. The below mentioned fields would be required for successful transfer of fees.
+You can get the below values from User Authentication API (1.2.2) above.
+developerWalletID : The Public key assigned on Account creation.
+developerWalletSecretKey: The secret key field.
+developerUserID: User ID of developer.
+
+API: /writeDataOnBlockchain<br/>
+Request Body:<br/>
+
+Parameter | Data type | Required/Default
+--------- | --------- | --------
+jsonData | String | Yes
+destAcct | String | Yes
+destSeed | String | Yes
+destUserID | String | Yes
+srcAcct | String | Yes
+srcSeed | String | Yes
+srcUserID | String | Yes
+amount | float | Yes
+burnAmount | String | No
+developerWalletID |String|No
+developerWalletSecretKey|String|No
+developerUserID|String|No
+
+
+Sample Request Body: {
+  "jsonData":"{\"AddAndLocOfFarm\":\"Satpur\",\"ArrivalDate\":\"2021-10-29T12:04:23.242+05:30\",\"ArrivalPort\":\"\",\"Country\":\"India\",\"CreatedDate\":\"10 29 2021 12:04:54\",\"CultureUnitID\":\"axa\",\"CultureUnitLocation\":\"EWR\",\"DeparturePort\":\"\",\"voucherTokenAssets\":1,\"IsDeleted\":false,\"LicenseAndPermitNumber\":\"ABZ897654\",\"NameOfFarmAndCompany\":\"Winjit\",\"RecdRole\":\"Farmer\",\"RecdUId\":\"Vkb6O6ZfLyQS1cLRbcnXJc4QnMp1\",\"ReceiverName\":\"Remith Test\",\"SenderName\":\"Remith UAT\",\"SentUId\":\"52QqKTpme1VAMZgsqSycLMhuTpd2\",\"Species\":[{\"AdditionalInfo\":[{\"name\":\"\",\"value\":\"\"}],\"AvailableQty\":1,\"LinkID\":\"\",\"ParentID\":\"-Mn9kXxpm2Ef9MSk2CM3\",\"SpeciesId\":\"tt4ymk\",\"SpeciesName\":\"Carp - Common\",\"SpeciesQty\":1,\"otherSpec\":\"\"}],\"Status\":\"Pending\",\"TxnHash\":\"\",\"TxnLinkID\":\"-Mn9kXxpm2Ef9MSk2CM3\",\"TxnStep\":0,\"UserName\":\"Remith UAT\",\"additionalInfo\":[{\"name\":\"\",\"value\":\"\"}],\"isRead\":false,\"key\":\"-Mn9kYH_aUOenodB3Zu7\"}",
+  "destAcct": "GAVAUZFXKZMZMXS3CTZF34AX4IHQMEYJK55CNJ4M75MV25LDTADXJUJQ",
+  "destSeed":"U2FsdGVkX1+nBSNFrJPVu17q7IlIVcR4ub7wNr7q7BXfnsAUSlY27EiW3rqGpIeiiyDOdbBzmfZsHWsughR/CxlvurGPWGS7YwduuiK9keM=",
+  "destUserID":"52QqKTpme1VAMZgsqSycLMhuTpd2",
+  "srcAcct":"GATSU64WOJDOGUMLKZP5FUJL32QM6WX5PLH4YRKK3ROWMCFPZ7RCKPI2",
+  "srcSeed":"U2FsdGVkX1+8FNQyvOaMCZvl2R1raM6/SHLfTiUvwWeiOsV7NqRe8i3C6Joei1DTrK7DcbALVjk3d90FT+YMwUYFp2bEmyrC9Gf7SAmOxXM=",
+  "srcUserID": "Vkb6O6ZfLyQS1cLRbcnXJc4QnMp1",
+  "amount": 1,
+  "burnAmount":"1",
+  "developerWalletID":"GAL4XW2WEFWM2WQYQASQBO5LOZPSLNBSSVWI5GYB2ZUZKHVAUFVKVQ22", "developerWalletSecretKey":"U2FsdGVkX1+fZQy9ogomAWZiEh2a6sMem0ZLnM+jvbisvOQTg4MtXhyxFRHBi33sha5PsAQUugBjeumseAhjMiujMTxodWki19ZzHQw/SOc=", "developerUserID":"prdCzwt9mBSBadXT6VfMZuqAVip2"
+}
+
+**1.4 Find your transactions on test net.**<br/>
+- a.Fetch the transaction hash from the transaction and go to Stellar test net URL to find details.<br/>
+	http://testnet.stellarchain.io/tx/txn_hash_here<br/>
+Example:<br/>
+	hash= ffa62016e1c20e5042ca59c2979545e20f6fa02de36824286515e12dd5e6abf9<br/>
+Then below is the blockchain tracking URL-<br/>
+	http://testnet.stellarchain.io/tx/ffa62016e1c20e5042ca59c2979545e20f6fa02de36824286515e12dd5e6abf9<br/>
+
+**2.0 Product developed using Trace protocol**<br/>
+- Fish and other sea food products are harvested, processed by farmers and then sold to local suppliers. They provide these to region suppliers who in turn sells it to the customers. But the industry is often unsustainable, illegal and inefficient.
+To tackle these problems, a system was developed to check traceability and quality maintenance using Blockchain technology. All the data was shared seamlessly using a Blockchain. A mobile + Web application was designed to capture data from fisherman. 
+In this project we developed and integrated TRACE API which serves as the primary gateway to facilitate digital values transfer.
+Therefore the Grower here is the Fisher, consumer here is the Farmer and Trader stays the same. The voucher tokens in this app is called as Fishcoins. We also integrated the DTone services for airtime topups and other value added services. The purchasing of fishcoin was done using the payment gateway Paypal. The app is live on [Web](https://mfish-trace.co/), [Android](https://play.google.com/store/apps/details?id=com.eachmile.fishcoin) and [iOS](https://apps.apple.com/us/app/mfish/id1488081510).
+
+Benefits for client after developing and integrating TRACE system <br/>
+- Precise information about seafood product was available to end user.
+- Exchange of digital currency from one person to another.
+- Effective tracking of the seafood products in global supply chain.
+- Reward mechanism for every user role in terms of tokens.
+- Through the system the client witnessed a hike in record collection.
+
+	- 2.1 mFish reference
+ 
+- **2.1.1	User Authentication API**<br/>
+Once the initial signup and verification process is done, you can use this API to fetch the user details. UserID is the value that will be used to uniquely identify the user and also will be required as a base for all the user related operations. 
+
+API: UserAuthentication<br/>
+Endpoint:cmxAPI/firebase/userAuthentication<br/>
+Request Body Parameters:<br/>
+
+Parameter | Data type | Required
+----------|-----------|---------
+email     |   String  |   Yes
+password  |   String  |   Yes
+
+Sample Request Body:{
+  "email": "rem@yopmail.com",
+  "password": "Abc@123"
+}
+
+- **2.1.2 Transfer Records**<br/>
+There are multiple API’s that can be consumed for fetching details of records, below is the list provided with it’s use, API end points and parameters.
+	- **1. Fetching sent records**<br/>
+This API will fetch all the records that are sent by user to fisher, farmer, trader along with status of records.<br/>
+Endpoint:cmxAPI/firebase/getSentRecordsByUser<br/>
+Request Body Parameters:<br/>
+
+	Parameter | Data type | Required
+	--------- |-----------|---------
+	userId    |  String   | Yes
+
+Sample Request Body:{
+  "userId": "52QqKTpme1VAMZgsqSycLMhuTpd"
+}
+
+- **2. Fetching received records.**<br/>
+This API will fetch all the records that are received by user from fisher, farmer, trader along with status of records.<br/>
+Endpoint:cmxAPI/firebase/getReceivedRecordsByUser<br/>
+Request Body Parameters:<br/>
+
+	Parameter | Data type | Required
+	--------- |-----------|---------
+	userId    |  String   | Yes
+
+Sample Request Body: {
+  "userId": "52QqKTpme1VAMZgsqSycLMhuTpd"
+}
+
+- **3 Fetching country list.**<br/>
+Used to fetch all the countries with country code.<br/>
+Endpoint:cmxAPI/firebase/getCountryList<br/>
+Method:GET<br/>
+
+- **4 Get Major Fishing Area.**<br/>
 Used to fetch the Fishing Area for Fisher, Farmer<br/>
 Endpoint: cmxAPI/firebase/getFAOMajorFishingArea<br/>
 Method: GET<br/>
 
-- **5.Get Fishing gear.**<br/>
+- **5 Get Fishing gear.**<br/>
 Used to fetch different types of fishing gears available<br/>
 Endpoint:cmxAPI/firebase/getFishingGear<br/>
 Method:GET<br/>
 
-- **6.Get Margin Amount.**<br/>
+- **6 Get Margin Amount.**<br/>
 Marging amount for merchant transactions<br/>
 Endpoint:cmxAPI/firebase/getMarginAmount<br/>
 Method: GET<br/>
 
-- **7.Sending a record.**<br/>
+- **7. Sending a record.**<br/>
 A user can send a record to Fisher Farmer or Trader. The request body will change as per the role of the sender.<br/>
 Endpoint:cmxAPI/firebase/getReceivedRecordsByUser<br/>
 
@@ -406,157 +568,7 @@ Sample Request Body :      {
   "key": "-MmvS-YlNqUQV76YSNOV"
 }
 
-**2.4 Transfer Voucher Tokens**<br/>
-- **a. Get Wallet balance**<br/>
-To fetch Stellar wallet balance<br/>
-API: /AccountDetails<br/>
-Request Body:<br/>
-
-	Parameter | Data type | Required/Default
-	--------- | --------- | --------
-	accountId | String | Yes
-
-Sample Request Body: {
-  "accountId":"GDC33CQDL7U3YI4MI2MFLRM7JP62TXDKBIWI4UXH2H27BOCAMJZSZZN3" 
-}
-
-- **b. Transfer Voucher Tokens**<br/>
-This API is used to transfer Fish assets from one account to another<br/>
-API: /transferVoucherTokenAssets<br/>
-Request Body:<br/>
-
-	Parameter | Data type | Required/Default
-	--------- | --------- | --------
-	srcAcct | String | Yes
-	srcSeed | String | Yes
-	srcUserID | String | Yes
-	destAcct | String | Yes
-	destSeed | String | Yes
-	destUserID | String | Yes
-	Amount | float | Yes
-	
-Sample Request Body:
-{
-  "srcAcct":"GATSU64WOJDOGUMLKZP5FUJL32QM6WX5PLH4YRKK3ROWMCFPZ7RCKPI2",
-  "srcSeed":"U2FsdGVkX1+8FNQyvOaMCZvl2R1raM6/SHLfTiUvwWeiOsV7NqRe8i3C6Joei1DTrK7DcbALVjk3d90FT+YMwUYFp2bEmyrC9Gf7SAmOxXM=",
-  "srcUserID":"Vkb6O6ZfLyQS1cLRbcnXJc4QnMp1",
-  "destAcct":"GAVAUZFXKZMZMXS3CTZF34AX4IHQMEYJK55CNJ4M75MV25LDTADXJUJQ",
-  "destSeed":"U2FsdGVkX1+nBSNFrJPVu17q7IlIVcR4ub7wNr7q7BXfnsAUSlY27EiW3rqGpIeiiyDOdbBzmfZsHWsughR/CxlvurGPWGS7YwduuiK9keM=",
-  "destUserID": "52QqKTpme1VAMZgsqSycLMhuTpd2",
-  "amount": 0.1
-}
-
-**c.Transfer Voucher Token Assets to Merchant Account**<br/>
- This API is used to transfer Fish assets to merchant account from user account<br/>
-API:/transferVoucherTokenAssetsToMerchant<br/>
-Request Body : <br/>
-
-Parameter | Data type | Required/Default
---------- | --------- | --------
-srcAcct | String | Yes
-srcSeed | String | Yes
-srcUserID | String | Yes
-Amount | Float | Yes
-feesAmount | Float | Yes
-burnAmount | Integer | Yes
-
-Sample Request Body: 
-{
-  "srcAcct":"GATSU64WOJDOGUMLKZP5FUJL32QM6WX5PLH4YRKK3ROWMCFPZ7RCKPI2",
-  "srcSeed":"U2FsdGVkX1+8FNQyvOaMCZvl2R1raM6/SHLfTiUvwWeiOsV7NqRe8i3C6Joei1DTrK7DcbALVjk3d90FT+YMwUYFp2bEmyrC9Gf7SAmOxXM=",
-  "srcUserID": "Vkb6O6ZfLyQS1cLRbcnXJc4QnMp1",
-  "amount": "0.005000000000000001",
-  "feesAmount": "0.005000000000000001",
-  "burnAmount": "0"
-}
-
-**d.Transfer Voucher Token Assets to Merchant and Developer Account**<br/>
- This API is used to transfer Fish assets to merchant and developer account from user account<br/>
- For the feature developed by the developer, the developer would be getting a 50% cut of merchant fees. The developer can get the details required for the fee transfer through the account details API. The below mentioned fields would be required for successful transfer of fees.<br>
- developerWalletID : The Public key assigned on Account creation.<br>
- developerWalletSecretKey: The secret key field.<br>
- developerUserID: User ID of developer.<br>
- You can get the above values from User Authentication API(2.2) above.<br>
-
-
-
-API:/transferVoucherTokenAssetsToMerchantAndDeveloper<br/>
-Request Body : <br/>
-
-Parameter | Data type | Required/Default
---------- | --------- | --------
-srcAcct | String | Yes
-srcSeed | String | Yes
-srcUserID | String | Yes
-Amount | Float | Yes
-feesAmount | Float | Yes
-burnAmount | Integer | Yes
-developerWalletID | String | No
-developerWalletSecretKey | String | No
-developerUserID | String | No
-
-
-Sample Request Body: 
-{
-  "srcAcct":"GATSU64WOJDOGUMLKZP5FUJL32QM6WX5PLH4YRKK3ROWMCFPZ7RCKPI2",
-  "srcSeed":"U2FsdGVkX1+8FNQyvOaMCZvl2R1raM6/SHLfTiUvwWeiOsV7NqRe8i3C6Joei1DTrK7DcbALVjk3d90FT+YMwUYFp2bEmyrC9Gf7SAmOxXM=",
-  "srcUserID": "Vkb6O6ZfLyQS1cLRbcnXJc4QnMp1",
-  "amount": "0.005000000000000001",
-  "feesAmount": "0.005000000000000001",
-  "burnAmount": "0",
-"developerWalletID":"GAL4XW2WEFWM2WQYQASQBO5LOZPSLNBSSVWI5GYB2ZUZKHVAUFVKVQ22", 
-  "developerWalletSecretKey":"U2FsdGVkX1+fZQy9ogomAWZiEh2a6sMem0ZLnM+jvbisvOQTg4MtXhyxFRHBi33sha5PsAQUugBjeumseAhjMiujMTxodWki19ZzHQw/SOc=", 
-  "developerUserID":"prdCzwt9mBSBadXT6VfMZuqAVip2"
-}
-
-**e.Transfer Voucher Token Assets from merchant Account**<br/>
- This API is used to transfer voucher token assets from merchant account to another <br/>
-API:/transferVoucherTokenAssetsFromMerchant <br/>
-Request Body: <br/>
-
-Parameter | Data type | Required/Default
---------- | --------- | --------
-destAcct | String | Yes
-destSeed | String | Yes
-destUserID | String | Yes
-Amount | float | Yes
-
-Sample Request Body: {
-  "destAcct":"GATSU64WOJDOGUMLKZP5FUJL32QM6WX5PLH4YRKK3ROWMCFPZ7RCKPI2",
-  "destSeed":"U2FsdGVkX1+8FNQyvOaMCZvl2R1raM6/SHLfTiUvwWeiOsV7NqRe8i3C6Joei1DTrK7DcbALVjk3d90FT+YMwUYFp2bEmyrC9Gf7SAmOxXM=",
-  "destUserID": "Vkb6O6ZfLyQS1cLRbcnXJc4QnMp1",
-  "amount": "5"
-}
-
-**f.Write Data on Blockchain**<br/>
- This API is used to write IPFS hash on the stellar blockchain, it returns the Stellar Transaction Hash<br/>
-API: /writeDataOnBlockchain<br/>
-Request Body:<br/>
-
-Parameter | Data type | Required/Default
---------- | --------- | --------
-jsonData | String | Yes
-destAcct | String | Yes
-destSeed | String | Yes
-destUserID | String | Yes
-srcAcct | String | Yes
-srcSeed | String | Yes
-srcUserID | String | Yes
-amount | float | Yes
-
-Sample Request Body: {
-  "jsonData":"{\"AddAndLocOfFarm\":\"Satpur\",\"ArrivalDate\":\"2021-10-29T12:04:23.242+05:30\",\"ArrivalPort\":\"\",\"Country\":\"India\",\"CreatedDate\":\"10 29 2021 12:04:54\",\"CultureUnitID\":\"axa\",\"CultureUnitLocation\":\"EWR\",\"DeparturePort\":\"\",\"FishcoinAssets\":1,\"IsDeleted\":false,\"LicenseAndPermitNumber\":\"ABZ897654\",\"NameOfFarmAndCompany\":\"Winjit\",\"RecdRole\":\"Farmer\",\"RecdUId\":\"Vkb6O6ZfLyQS1cLRbcnXJc4QnMp1\",\"ReceiverName\":\"Remith Test\",\"SenderName\":\"Remith UAT\",\"SentUId\":\"52QqKTpme1VAMZgsqSycLMhuTpd2\",\"Species\":[{\"AdditionalInfo\":[{\"name\":\"\",\"value\":\"\"}],\"AvailableQty\":1,\"LinkID\":\"\",\"ParentID\":\"-Mn9kXxpm2Ef9MSk2CM3\",\"SpeciesId\":\"tt4ymk\",\"SpeciesName\":\"Carp - Common\",\"SpeciesQty\":1,\"otherSpec\":\"\"}],\"Status\":\"Pending\",\"TxnHash\":\"\",\"TxnLinkID\":\"-Mn9kXxpm2Ef9MSk2CM3\",\"TxnStep\":0,\"UserName\":\"Remith UAT\",\"additionalInfo\":[{\"name\":\"\",\"value\":\"\"}],\"isRead\":false,\"key\":\"-Mn9kYH_aUOenodB3Zu7\"}",
-  "destAcct": "GAVAUZFXKZMZMXS3CTZF34AX4IHQMEYJK55CNJ4M75MV25LDTADXJUJQ",
-  "destSeed":"U2FsdGVkX1+nBSNFrJPVu17q7IlIVcR4ub7wNr7q7BXfnsAUSlY27EiW3rqGpIeiiyDOdbBzmfZsHWsughR/CxlvurGPWGS7YwduuiK9keM=",
-  "destUserID":"52QqKTpme1VAMZgsqSycLMhuTpd2",
-  "srcAcct":"GATSU64WOJDOGUMLKZP5FUJL32QM6WX5PLH4YRKK3ROWMCFPZ7RCKPI2",
-  "srcSeed":"U2FsdGVkX1+8FNQyvOaMCZvl2R1raM6/SHLfTiUvwWeiOsV7NqRe8i3C6Joei1DTrK7DcbALVjk3d90FT+YMwUYFp2bEmyrC9Gf7SAmOxXM=",
-  "srcUserID": "Vkb6O6ZfLyQS1cLRbcnXJc4QnMp1",
-  "amount": 1
-}
-
-
-**2.5. Settings**<br/>
+** 2.1.4 Settings**<br/>
 
 **a. Profile information**<br/>
 Fetch user details using userID.<br/>
@@ -691,23 +703,4 @@ Sample Request Body: {
   "userId": "52QqKTpme1VAMZgsqSycLMhuTpd"
 }
 
-**2.6 Find your transactions on test net.**<br/>
-- a.Fetch the transaction hash from the transaction and go to Stellar test net URL to find details.<br/>
-	http://testnet.stellarchain.io/tx/txn_hash_here<br/>
-Example:<br/>
-	hash= ffa62016e1c20e5042ca59c2979545e20f6fa02de36824286515e12dd5e6abf9<br/>
-Then below is the blockchain tracking URL-<br/>
-	http://testnet.stellarchain.io/tx/ffa62016e1c20e5042ca59c2979545e20f6fa02de36824286515e12dd5e6abf9<br/>
 
-**3.0 Product developed using Trace protocol**<br/>
-- Fish and other sea food products are harvested, processed by farmers and then sold to local suppliers. They provide these to region suppliers who in turn sells it to the customers. But the industry is often unsustainable, illegal and inefficient.
-To tackle these problems, a system was developed to check traceability and quality maintenance using Blockchain technology. All the data was shared seamlessly using a Blockchain. A mobile + Web application was designed to capture data from fisherman. 
-In this project we developed and integrated TRACE API which serves as the primary gateway to facilitate digital values transfer.
-Therefore the Grower here is the Fisher, consumer here is the Farmer and Trader stays the same. The voucher tokens in this app is called as Fishcoins. We also integrated the DTone services for airtime topups and other value added services. The purchasing of fishcoin was done using the payment gateway Paypal. The app is live on [Web](https://mfish-trace.co/), [Android](https://play.google.com/store/apps/details?id=com.eachmile.fishcoin) and [iOS](https://apps.apple.com/us/app/mfish/id1488081510).
-
-Benefits for client after developing and integrating TRACE system <br/>
-- Precise information about seafood product was available to end user.
-- Exchange of digital currency from one person to another.
-- Effective tracking of the seafood products in global supply chain.
-- Reward mechanism for every user role in terms of tokens.
-- Through the system the client witnessed a hike in record collection.
