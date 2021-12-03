@@ -568,7 +568,7 @@ Sample Request Body :      {
   "key": "-MmvS-YlNqUQV76YSNOV"
 }
 
-** 2.1.4 Settings**<br/>
+** 2.1.3 Settings**<br/>
 
 **a. Profile information**<br/>
 Fetch user details using userID.<br/>
