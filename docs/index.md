@@ -1,17 +1,20 @@
 #Contents
-1. WHAT IS TRACE?<br/>
-	- 1.1 FUNCTIONALITIES OF TRACE<br/>
-	- 1.2 TRACE API REFERENCE<br/>
-		- 1.2.1. STEPS FOR SIGNUP<br/>
-		- 1.2.2. USER AUTHENTICATION API<br/>
-		- 1.2.3. TRANSFER RECORDS<br/>
-	- 1.3. TRANSFER VOUCHER TOKEN<br/>	
-	- 1.4 FIND YOUR TRANSACTIONS ON TEST NET<br/>
-2. PRODUCT DEVELOPED USING TRACE PROTOCOL - "mFish"
- 	- 2.1 mFish REFERENCE
- 		- 2.1.1 USER AUTHENTICATION API<br/>
- 		- 2.1.2 TRANSFER RECORDS<br/>
- 		- 2.1.3 Settings
+1. WHY DO WE NEED TRACE?<br/>
+        - 1.1 Why Do We Need Trace?<br/>
+        - 1.2 What is TRACE?<br/>
+	        - 1.2.1 FUNCTIONALITIES OF TRACE<br/>
+	- 1.3 Why build or integrate TRACE into your dApp?
+2. TRACE API REFERENCE<br/>
+	- 2.1. STEPS FOR SIGNUP<br/>
+	- 2.2. USER AUTHENTICATION API<br/>
+	- 2.3. TRANSFER RECORDS<br/>
+	- 2.4. TRANSFER VOUCHER TOKEN<br/>	
+	- 2.5  FIND YOUR TRANSACTIONS ON TEST NET<br/>
+3. PRODUCT DEVELOPED USING TRACE PROTOCOL - "mFish"
+ 	- 3.1 mFish REFERENCE
+ 		- 3.1.1 USER AUTHENTICATION API<br/>
+ 		- 3.1.2 TRANSFER RECORDS<br/>
+ 		- 3.1.3 Settings
 	- A. PROFILE INFORMATION<br/>
 	- B. TRANSACTION LOG<br/>
 		- I. DEBIT TRANSACTION LOGS OF USER<br/>
@@ -25,21 +28,44 @@
 	
 
 
-**1.	What is TRACE?**<br/>
-It is an application programming interface, enables to open up applications’ data and functionality to external third-party developers and business partners. Trace allows services and products to communicate with each other and leverage each other’s data and functionality through a documented interface. Developers don't need to know how a Trace API is implemented; they can simply use the Trace API interface to communicate with other products and services.
+**1.	WHY DO WE NEED TRACE & WHAT IS IT?**<br/>
 
-- **1.1	Functionalities of TRACE**<br/>
-	There are three user roles involved in TRACE system namely Grower, Consumer and Trader. Users will be able to avail the features of application by signing into it. For registering new user, along with user details, industry role is a mandatory field. After successful sign up, transfer records are made visible to user as per industry role. All the registration and login details are stored on Firebase database.  
+-**1.1	Why Do We Need Trace?**<br/>
+        Traceability is the ability to trace back to where a product came from, and, if applicable, where the product’s ingredients/components were sourced from. It is important to do so to ensure that the products we use and consume are safe, authentic and have been produced in a legal, sustainable, and responsible manner. In the case of seafood supply chains, traceability is important because more than one third of global production is said to be illegal, unreported or unregulated (IUU), up to 80% of certain species groups can be mislabelled, the seafood may contain natural toxins, man-made contaminants, or be unsafe to consume due poor cold chain and bacterial contamination. In addition, most fish stocks are at levels of maximum exploitation or are overfished, and modern day slavery can be prevalent.  These are major risks for companies and for the future or the industry, as well as risks for governments and our food security.
+Although traceability can be achieved through pencil and paper or simple spreadsheets, records can be duplicated or falsified and thus these methods do not build trust within a supply chain. Specific traceability systems exist but they are often built for intra-company, one-up one-down traceability, they are proprietary, and they can be difficult to use and expensive. Further, with upwards of 90% of global seafood production and the industry’s workforce based out of and in developing nations, these systems are often not accessible to those at the first mile of seafood supply chains. Even if a fisher or fish farmer could pay and use a system, there is no clear return on investment, and so we lack traceability. In fact a study commissioned by Standard Chartered Bank found that only 6% of firms have visibility through their supply chains. Why is that concern and why would a bank commission such a study? Well without traceability, the risk for finance and insurance is too high, and we are stuck in a world where, for the most part, we are unable to identify, verify, and reward legal and responsible production for the vast majority of our produce like seafood. 
+That is why Eachmile Technologies designed and built the Trace Protocol. A protocol that in the case of seafood allows developers to build or integrate into decentralised applications a token called Fishcoin. The token can be used as an incentive for the sharing and recording of data in an immutable way that builds trust and provides traceability. It can be integrated into any  blockchain operating system, allows for the market to work out the value of the data, and provides a mechanism by which the market can reward the fishers, farmers and other supply chain actors in developing nations when they redeem the tokens for mobile air-time top ups and other services in the future.
 
-  <p align="center">
-  <img src="../Trace.png" width="350" title="hover text">
+
+**1.2 What is TRACE?**<br/>
+TRACE is an Application Programming Interface (API) that facilitates shared functionality and data transfer between applications via a documented interface.  Specifically the transfer of traceability data between stakeholders in a supply chain such as producers and intermediaries such as aggregators, processors, wholesalers, through to retailers. 
+
+- **1.2.1 Functionalities of TRACE**<br/>
+There are two main user roles in the TRACE system - the producer and the trader. In the case of the seafood industry there are two main producers -  a fisher or a fish farmer. When registering and signing up to the application for the first time, it is mandatory for the user to choose between one of these three industry roles - either a fisher, a farmer, or a trader. After successful sign up, only the producers (fishers or farmers) can create a new data record for sharing to either another producer or to a trader. A producer can sometimes sell their produce to another producer but a trader can only receive produce from a producer, and therefore the trader cannot create a new data record of a catch or harvest event. 
+
+Upon signing up, a user enters profile data. This is identity data such as an individual’s name or company name, the name of the fishing vessel if a fisher, or the name of the farm if a farmer etc. This static or fixed data, forms part of what are known as Key Data Elements (KDEs) for traceability and auto-fills for each new data record. Dynamic data elements refers to data that may change for each new data record, and for a fisher this may be the port of departure, the date departed, the port of landing, the species of fish, the weight of the fish etc. For a farmer it may be the pond number, the size category and weight of the harvest etc.   
+
+When a producer has filled in the dynamic traceability KDEs related to a harvest of seafood that he/she is selling to a trader, he/she then negotiates on the amount of Fishcoin tokens that he/she wants for the data. As an example, if a fisher is selling $1,000 worth of seafood he or she may ask for 5% of the value of the fish - thus $50. The trader may counter with 1% ($10), they then may meet in the middle and agree on $25 (2.5%) - the equivalent of 25 Fishcoin tokens. The producer then enters 25 tokens and transfers the data record to the trader. The trader accepts and the data transfer is recorded on the blockchain. 
+
+As producers and traders may buy produce from numerous other producers, both user types can create linked records. For example the same trader buys $1,500 and $500 worth of fish from two other fishers, negotiates the same rate (2.5%) and has paid $75 (75 Fishcoin tokens). The trader then sells all fish from these three fishers to one buyer, the trader can select each record from the three fishers and transfer the combined quantity (with three hash codes) in one record to the buyer, and may receive $100 worth of tokens for the data that he/she paid $75 for. 
+
+The Fishcoin tokens can be redeemed for air-time mobile top ups in over 150 countries with over 500 mobile operators. In the near future the tokens will be able to be redeemed for other vouchers that can be redeemed at convenience stores, coffee shops, or to pay for utilities such as water or electricity. 
+
+
+
+- **1.3 Why build or integrate TRACE into your dApp?**<br/>
+Every transaction made on a TRACE integrated dApp incurs a commission. In the case of Fishcoin token transactions, which are valued at 1USD per 1 Fishcoin, a 5% commission is deducted and the developer of the Fishcoin enabled dApp will receive 50% of the commission value. These tokens will be sent to the digital wallet of the developer and are redeemable for services similar to how a fisher or a farmer would redeem the tokens on the application, or for batch transfers to Eachmile for the transfer of fiat currency into the developer’s bank account.* 
+
+ <p align="center">
+  <img src="../trace1.png" width="700" title="hover text">
   </p>
-
-	User roles like Grower and Consumer can add new transfer record while trader can add linked records. Consumer/Grower will have to enter the product information along with their own profile information which was auto populated. In product information, unit id, harvest date, location, species and quantities are captured. To send this product, receiver's mobile number is required. The receiver will be able to check his newly received data with provision of accepting and rejecting the product.  
-If user rejects any product then all details of such product get erased from the system. For accepted product, certain number of tokens gets transferred to sender's account and the details are then written on public blockchain Stellar with the help of smart contract. All the transactional records are maintained on blockchain.  
-To utilize the received tokens, another functionality called recharge utility is provided. Because of this function Grower, Consumer and Trader are able to use those received utility tokens for various recharge services like mobile, TV, broadband, electricity and many more utility bill payments.   
+  
+Only Producers can add new transfer records while traders can add linked records. Producers enter the product information whilst their own profile information auto-populates. In product information, information such a production unit id (e.g. farm name for farmers or vessel name for fishers), harvest details such as the data of harvest or dates departed/landed, the location, the species and quantities are to be entered. To send this product information, the receiver must first have downloaded the application, and be a contact within the application itself . The receiver will be able to receive the data and check his newly received data with provision of accepting and rejecting the product. 
  
- **1.2 TRACE API reference**<br/>
+If user rejects any product then all details of such product get erased from the system. For accepted product, certain number of tokens gets transferred to sender's account and the details are then written on public blockchain Stellar with the help of smart contract. All the transactional records are maintained on blockchain. 
+ 
+To utilize the received tokens, another functionality called recharge utility is provided. Because of this function Grower, Consumer and Trader are able to use those received utility tokens for various recharge services like mobile, TV, broadband, electricity and many more utility bill payments. 
+
+ **2 TRACE API reference**<br/>
 Welcome to the TRACE API reference.
 This API serves as the primary gateway to facilitate digital values transfer through TRACE.
 Links to access<br/>
@@ -47,24 +73,24 @@ Links to access<br/>
 	-[TRACE Firebase Swagger](http://52.163.83.160:7772/API-docs)<br/>
 	-[TRACE Blockchain Swagger](http://52.163.83.160:7773/API-docs/#/)<br/>
 	
-- **1.2.1 Steps for Signup**<br/>
+- **2.1 Steps for Signup**<br/>
 1. Signup by [clicking here](http://52.163.83.160:7771)
-2. User has to Sign up from portal using valid email address and select anyone of the three roles. (Grower, Consumer, Trader).
+2. User has to Sign up from portal using valid email address and select anyone of the three roles. (Fisher, Farmer, Trader).
   <p align="center">
   <img src="../signup.png" width="700" height="400" title="hover text">
   </p>
 3. A verification email will be sent to the registered email address<br/>
-4. Verify the email link received at the registered email address
+4. Verify the email address received at the registered email address
   <p align="center">
   <img src="../verification-link.png" width="700" height="400" title="hover text">
   </p>
-5. Login once to activate your account and add the profile details.
+5. Login to activate your account and add user profile details.
  <p align="center">
   <img src="../signin.png" width="700" height="400" title="hover text">
   </p>
 
 
-- **1.2.2	User Authentication API**<br/>
+- **2.2	User Authentication API**<br/>
 Once the initial signup and verification process is done, you can use this API to fetch the user details. UserID is the value that will be used to uniquely identify the user and also will be required as a base for all the user related operations. 
 
 API: UserAuthentication<br/>
@@ -81,10 +107,10 @@ Sample Request Body:{
   "password": "Abc@123"
 }
 
-- **1.2.3 Transfer Records**<br/>
+- **2.3 Transfer Records**<br/>
 There are multiple API’s that can be consumed for fetching details of records, below is the list provided with it’s use, API end points and parameters.
-	- **1. Fetching sent records**<br/>
-This API will fetch all the records that are sent by user to fisher, farmer, trader along with status of records.<br/>
+	- **2.3.1. Fetching sent records**<br/>
+This API will fetch all the records that are sent by user to fishers, farmers and traders along with status of records.<br/>
 Endpoint:cmxAPI/firebase/getSentRecordsByUser<br/>
 Request Body Parameters:<br/>
 
@@ -96,7 +122,7 @@ Sample Request Body:{
   "userId": "52QqKTpme1VAMZgsqSycLMhuTpd"
 }
 
-- **2. Fetching received records.**<br/>
+- **2.3.2 Fetching received records.**<br/>
 This API will fetch all the records that are received by user from fisher, farmer, trader along with status of records.<br/>
 Endpoint:cmxAPI/firebase/getReceivedRecordsByUser<br/>
 Request Body Parameters:<br/>
@@ -109,13 +135,13 @@ Sample Request Body: {
   "userId": "52QqKTpme1VAMZgsqSycLMhuTpd"
 }
 
-- **3 Fetching country list.**<br/>
+- **2.3.3 Fetching country list.**<br/>
 Used to fetch all the countries with country code.<br/>
 Endpoint:cmxAPI/firebase/getCountryList<br/>
 Method:GET<br/>
 
 
-**1.3 Transfer Voucher Tokens**<br/>
+**2.4 Transfer Voucher Tokens**<br/>
 - **a. Get Wallet balance**<br/>
 To fetch Stellar wallet balance<br/>
 API: /AccountDetails<br/>
@@ -160,7 +186,7 @@ Sample Request Body:
 This API is used to write IPFS hash on the stellar blockchain, it returns the Stellar Transaction Hash
 
 This API is used to transfer Voucher token assets to merchant and developer account from user account. For the feature developed by the developer, the developer would be getting a 50% cut of merchant fees. The developer can get the details required for the fee transfer through the account details API. The below mentioned fields would be required for successful transfer of fees.
-You can get the below values from User Authentication API (1.2.2) above.
+You can get the below values from User Authentication API (2.2) above.
 developerWalletID : The Public key assigned on Account creation.
 developerWalletSecretKey: The secret key field.
 developerUserID: User ID of developer.
@@ -197,7 +223,7 @@ Sample Request Body: {
   "developerWalletID":"GAL4XW2WEFWM2WQYQASQBO5LOZPSLNBSSVWI5GYB2ZUZKHVAUFVKVQ22", "developerWalletSecretKey":"U2FsdGVkX1+fZQy9ogomAWZiEh2a6sMem0ZLnM+jvbisvOQTg4MtXhyxFRHBi33sha5PsAQUugBjeumseAhjMiujMTxodWki19ZzHQw/SOc=", "developerUserID":"prdCzwt9mBSBadXT6VfMZuqAVip2"
 }
 
-**1.4 Find your transactions on test net.**<br/>
+**2.5 Find your transactions on test net.**<br/>
 - a.Fetch the transaction hash from the transaction and go to Stellar test net URL to find details.<br/>
 	http://testnet.stellarchain.io/tx/txn_hash_here<br/>
 Example:<br/>
@@ -205,7 +231,15 @@ Example:<br/>
 Then below is the blockchain tracking URL-<br/>
 	http://testnet.stellarchain.io/tx/ffa62016e1c20e5042ca59c2979545e20f6fa02de36824286515e12dd5e6abf9<br/>
 
-**2.0 Product developed using Trace protocol**<br/>
+
+
+<p align="center">
+  <img src="../transaction.png" width="700" height="400" title="hover text">
+  </p>
+
+
+
+**3.0 Product developed using Trace protocol**<br/>
 - Fish and other sea food products are harvested, processed by farmers and then sold to local suppliers. They provide these to region suppliers who in turn sells it to the customers. But the industry is often unsustainable, illegal and inefficient.
 To tackle these problems, a system was developed to check traceability and quality maintenance using Blockchain technology. All the data was shared seamlessly using a Blockchain. A mobile + Web application was designed to capture data from fisherman. 
 In this project we developed and integrated TRACE API which serves as the primary gateway to facilitate digital values transfer.
@@ -218,9 +252,9 @@ Benefits for client after developing and integrating TRACE system <br/>
 - Reward mechanism for every user role in terms of tokens.
 - Through the system the client witnessed a hike in record collection.
 
-	- 2.1 mFish reference
+	- 3.1 mFish reference
  
-- **2.1.1	User Authentication API**<br/>
+- **3.1.1	User Authentication API**<br/>
 Once the initial signup and verification process is done, you can use this API to fetch the user details. UserID is the value that will be used to uniquely identify the user and also will be required as a base for all the user related operations. 
 
 API: UserAuthentication<br/>
@@ -237,7 +271,7 @@ Sample Request Body:{
   "password": "Abc@123"
 }
 
-- **2.1.2 Transfer Records**<br/>
+- **3.1.2 Transfer Records**<br/>
 There are multiple API’s that can be consumed for fetching details of records, below is the list provided with it’s use, API end points and parameters.
 	- **1. Fetching sent records**<br/>
 This API will fetch all the records that are sent by user to fisher, farmer, trader along with status of records.<br/>
@@ -290,7 +324,7 @@ A user can send a record to Fisher Farmer or Trader. The request body will chang
 Endpoint:cmxAPI/firebase/getReceivedRecordsByUser<br/>
 
 Request Body:<br/>
-- a. Grower:<br/>
+- a. Fisher:<br/>
 
 	Parameter | Data type | Required
 	--------- | --------- | --------
@@ -379,7 +413,7 @@ Example.
 	"FishcoinAssets": 1
 }
 
-- b. Consumer:
+- b. Farmer:
 	Parameter | Data type | Required/Default
 	--------- | --------- | --------
 	ArrivalPort | String | No
@@ -568,7 +602,7 @@ Sample Request Body :      {
   "key": "-MmvS-YlNqUQV76YSNOV"
 }
 
-** 2.1.4 Settings**<br/>
+** 3.1.3 Settings**<br/>
 
 **a. Profile information**<br/>
 Fetch user details using userID.<br/>
